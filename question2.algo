@@ -1,0 +1,39 @@
+FUNCTION CheckOrthogonalityUsingProcedure(n, vectors) : STRING;
+VAR
+    results := []; //Initialize an empty list called results.
+BEGIN
+    set_instructions
+    RETURN results ;
+END 
+
+FUNCTION dot_product(v1, v2) : INTEGER; // the procedure
+VAR
+    ps := 0;
+BEGIN
+    FOR i FROM 0 TO v1.length-1 STEP i++  DO
+        ps := ps + v1[i] * v2[i];  //Increment ps by v1[i] * v2[i].
+    END_FOR
+    RETURN ps ;
+END
+
+ALGORITHM CheckOrthogonality
+VAR
+    v1 := vectors[i][0];
+    v2 := vectors[i][1];
+    ps := dot_product[v1, v2];
+    vectors := [
+        [[1, 2], [3, 4]],
+        [[5, 6], [7, 8]],
+    ]
+    n := vectors.length;
+    orthogonalResults := CheckOrthogonalityUsingProcedure(n, vectors);
+BEGIN
+FOR i FROM 0 TO i < n; STEP i++  DO
+    IF (ps === 0) THEN  //If ps is equal to 0  Append "Orthogonal" to the results list.
+        result.push("orthogonal");
+    ELSE
+        result.push("Not orthogonal"); // else Append "Not Orthogonal" to the results list.
+    END_IF
+END_FOR
+    Write(orthogonalResults);
+END

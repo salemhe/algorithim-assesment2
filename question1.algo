@@ -1,0 +1,26 @@
+FUNCTION sumDistinctElements(set1, set2) : INTEGER;
+VAR
+    sum := 0;  // nitialize a variable sum to 0 to keep track of the sum of distinct elements.
+    element1 := INTEGER;
+    element2 := INTEGER;
+BEGIN
+    FOR element1 FROM 0 TO set1.lenght STEP set1  DO //For each element in set1, check if it is not present in the second set (set2).
+        IF (!set2.includes(element1)) THEN
+            sum := sum + element1;  //If it's not present, add the element to the sum.
+        END_IF
+    END_FOR
+    FOR element2 FROM 0 TO set2.lenght STEP set2  DO //Repeat the same process for the second set (set2).
+        IF (!set1.includes(element2)) THEN
+            sum := sum + element2;
+        END_IF
+    END_FOR
+    RETURN sum;
+END
+ALGORITHM addingTwoElement
+VAR
+    set1 := [3, 1, 7, 9];
+    set2 := [2, 4, 1, 9, 3];
+    result := sumDistinctElements(set1, set2); // After iterating through both sets, the sum will contain the sum of all distinct elements from both sets.
+BEGIN
+    Write(result);
+END
